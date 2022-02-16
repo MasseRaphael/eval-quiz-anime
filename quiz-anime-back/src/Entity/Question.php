@@ -4,46 +4,30 @@ namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\QuestionRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: QuestionRepository::class)]
 #[ApiResource(
-    normalizationContext: [ 'groups' => ['read:collections']],
-    itemOperations: [
-        'get'
-    ]
+    itemOperations: ['get']
 )]
 class Question
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
-    #[Groups(['read:collections'])]
     private $id;
 
     #[ORM\Column(type: 'string', length: 255)]
-    #[Groups(['read:collections'])]
-    private $Title;
+    private $title;
 
     #[ORM\Column(type: 'string', length: 255)]
-    #[Groups(['read:collections'])]
     private $correctAnswer;
 
     #[ORM\Column(type: 'string', length: 255)]
-    #[Groups(['read:collections'])]
-    private $videosUrl;
+    private $videos;
 
-    #[ORM\OneToMany(mappedBy: 'question', targetEntity: Answer::class, orphanRemoval: true)]
-    #[Groups(['read:collections'])]
-    private $Answers;
-
-    public function __construct()
-    {
-        $this->Answers = new ArrayCollection();
-    }
+    #[ORM\Column(type: 'array')]
+    private $answers = [];
 
     public function getId(): ?int
     {
@@ -52,12 +36,12 @@ class Question
 
     public function getTitle(): ?string
     {
-        return $this->Title;
+        return $this->title;
     }
 
-    public function setTitle(string $Title): self
+    public function setTitle(string $title): self
     {
-        $this->Title = $Title;
+        $this->title = $title;
 
         return $this;
     }
@@ -74,44 +58,26 @@ class Question
         return $this;
     }
 
-    public function getVideosUrl(): ?string
+    public function getVideos(): ?string
     {
-        return $this->videosUrl;
+        return $this->videos;
     }
 
-    public function setVideosUrl(string $videosUrl): self
+    public function setVideos(string $videos): self
     {
-        $this->videosUrl = $videosUrl;
+        $this->videos = $videos;
 
         return $this;
     }
 
-    /**
-     * @return Collection|Answer[]
-     */
-    public function getAnswers(): Collection
+    public function getAnswers(): ?array
     {
-        return $this->Answers;
+        return $this->answers;
     }
 
-    public function addAnswer(Answer $answer): self
+    public function setAnswers(array $answers): self
     {
-        if (!$this->Answers->contains($answer)) {
-            $this->Answers[] = $answer;
-            $answer->setQuestion($this);
-        }
-
-        return $this;
-    }
-
-    public function removeAnswer(Answer $answer): self
-    {
-        if ($this->Answers->removeElement($answer)) {
-            // set the owning side to null (unless already changed)
-            if ($answer->getQuestion() === $this) {
-                $answer->setQuestion(null);
-            }
-        }
+        $this->answers = $answers;
 
         return $this;
     }
