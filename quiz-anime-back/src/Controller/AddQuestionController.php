@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
-class VideoController extends AbstractController
+class AddQuestionController extends AbstractController
 {
     private ObjectManager $managerRegistry;
     public function __construct(ManagerRegistry $managerRegistry)
