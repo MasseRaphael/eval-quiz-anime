@@ -1,5 +1,6 @@
 import React from "react";
 import useSWR from "swr";
+import ReactPlayer from "react-player";
 
 
 const questionsEndpoint = "http://localhost:8000/api/questions";
@@ -20,6 +21,7 @@ export default function Play(){
                     questions.map((question) => (
                         <div key={question.id} className="border border-dark p-5 text-center m-5">
                             <h2>{question.title}</h2>
+                            <ReactPlayer url={question.videos} playing={true} muted={true} loop={true} controls={true} width={350} height={350} />
                             <div className="container">
                                 <div className="row m-1">
                                     <div className="col">

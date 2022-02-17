@@ -75,7 +75,7 @@ class APIController extends AbstractController
         $directory = "videos/";
         $filename = md5(uniqid()).".mp4";
         file_put_contents($directory.$filename, $link);
-        $path = '/'.$directory.$filename;
+        $path = 'http://localhost:8000/'.$directory.$filename;
         return $path;
     }
 }
