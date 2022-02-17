@@ -25,7 +25,9 @@ DATABASE_URL="mysql://root:db_password@127.0.0.1:3306/quiz_anime?serverVersion=m
 - 127.0.0.1 par l'url de votre base de donnée et 3306 par votre port
 - Et enfin mariadb-10.4.22 par votre version de serveur de votre base de donnée
 
-puis tapez la commande `php bin/console doctrine:database:create` suivi de `php bin/console doctrine:migrations:migrate`.(récuération de la base de donnée)
+puis tapez la commande `php bin/console doctrine:database:create` suivi de `php bin/console doctrine:migrations:migrate`
+
+ensuite jouer le script contenu dans `quiz_anime.sql` dans votre gestionnaire sql.
 
 Une fois la base de donnée créer lancer le fonctionnement du back avec la commande `symfony server:start`.
 
