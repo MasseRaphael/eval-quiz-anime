@@ -52,25 +52,25 @@ export default function Create(){
                 {errors.title && <span>Ce champs est obligatoire</span>}
 
                 <input
-                    {...register("answers[answer0]", { required: true })}
+                    {...register("answers[0]", { required: true })}
                     placeholder="Réponse 1"
                 />
                 {errors.answers && <span>Ce champs est obligatoire</span>}
 
                 <input
-                    {...register("answers[answer1]", { required: true })}
+                    {...register("answers[1]", { required: true })}
                     placeholder="Réponse 2"
                 />
                 {errors.answers && <span>Ce champs est obligatoire</span>}
 
                 <input
-                    {...register("answers[answer2]", { required: true })}
+                    {...register("answers[2]", { required: true })}
                     placeholder="Réponse 3"
                 />
                 {errors.answers && <span>Ce champs est obligatoire</span>}
 
                 <input
-                    {...register("answers[answer3]", { required: true })}
+                    {...register("answers[3]", { required: true })}
                     placeholder="Réponse 4"
                 />
                 {errors.answers && <span>Ce champs est obligatoire</span>}
