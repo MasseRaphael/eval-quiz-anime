@@ -1,27 +1,21 @@
-import Questions from "../components/questions";
+import React from "react";
+import useSWR from "swr";
+import axios from "axios";
 
-export default function Play({questions}){
+const questionsEndpoint = "http://localhost:8000/api/questions";
+
+const getData = async () => {
+    const response = await fetch(questionsEndpoint);
+    return await response.json();
+};
+
+
+export default function Play(){
+    const { data: questions } = useSWR(questionsEndpoint, getData);
+    console.log(questions)
     return (
         <>
-            <Questions questions={ questions }/>
+            p
         </>
     )
-}
-
-export async function getServerSideProps() {
-    const questionsRes = await fetch(
-        'http://localhost:8000/api/questions'
-    );
-    const questions = await questionsRes.json();
-
-    if (!questions) {
-        return {
-            notFound: true,
-        }
-    }
-    return {
-        props: {
-            questions,
-        },
-    };
 }

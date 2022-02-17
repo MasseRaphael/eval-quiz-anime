@@ -8,11 +8,6 @@ use App\Repository\QuestionRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: QuestionRepository::class)]
-#[ApiResource(
-    collectionOperations: [
-        'get'
-    ]
-)]
 class Question
 {
     #[ORM\Id]
