@@ -19,12 +19,11 @@ Remplacez les information du fichier `.env` par les votre à la lignes:
 
 ```
 DATABASE_URL="mysql://root:db_password@127.0.0.1:3306/quiz_anime?serverVersion=mariadb-10.4.22"
-
-root par votre nom d'utilisateur de la base de donnée
-db_password par votre mot de passe de la base de donnée
-127.0.0.1 par l'url de votre base de donnée et 3306 par votre port
-Et enfin mariadb-10.4.22 par votre version de serveur de votre base de donnée
 ```
+- root par votre nom d'utilisateur de la base de donnée
+- db_password par votre mot de passe de la base de donnée
+- 127.0.0.1 par l'url de votre base de donnée et 3306 par votre port
+- Et enfin mariadb-10.4.22 par votre version de serveur de votre base de donnée
 
 puis tapez la commande `php bin/console doctrine:database:create` suivi de `php bin/console doctrine:migrations:migrate`.(récuération de la base de donnée)
 
