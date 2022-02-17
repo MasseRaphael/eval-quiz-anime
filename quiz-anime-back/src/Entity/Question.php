@@ -3,7 +3,7 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
-use App\Controller\AddQuestionController;
+use App\Controller\APIController;
 use App\Repository\QuestionRepository;
 use Doctrine\ORM\Mapping as ORM;
 
