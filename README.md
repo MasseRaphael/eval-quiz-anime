@@ -1,7 +1,7 @@
 # Eval Quiz Anime
 
 ## Description
-Evaluation qui nous demande de créer un quiz sur les amines
+Evaluation qui nous demande de créer un quiz sur les amines en Reactjs pour le front et Symfony en api pour le back
 
 ## Installation
 ### Pour la partie back
