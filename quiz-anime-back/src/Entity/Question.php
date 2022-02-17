@@ -3,12 +3,15 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
+use App\Controller\VideoController;
 use App\Repository\QuestionRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: QuestionRepository::class)]
 #[ApiResource(
-    itemOperations: ['get']
+    collectionOperations: [
+        'get'
+    ]
 )]
 class Question
 {
